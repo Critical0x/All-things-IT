@@ -1,0 +1,56 @@
+What is AD?
+- Active Directory (AD) is a database and set of services that connect users with the network resources the need to get their work done. It runs on Microsoft Windows Server. To sum it all up, Active Directory helps manage permissions and control access to critical network resources. The database (or directory) contains critical information (stored as objects) about your environment, including what users and computers there are and whos allowed to do what. For example, the database might list 100 user accounts with details like each persons job title, phone number and password. It also records their permissions. The services control much of the activity that goes on in your IT environment. They also make sure that each person is who they claim to be, usually by checking the user ID and the password that they enter. Allowing them to access only the data they're allowed to use.
+
+What are AD 'Domain Services'?
+- Active Directory Domain Services (AD DS) are a core component of Active Directory and provide the primary mechanism for authenticating users and determining which netowrk resources the can access. AD DS also provides additional features such as 'Single SIgn-On' (SSO), security certificates, LDAP, and access rights management.
+
+Benefits of Active Directory
+- Active Directory simplifies the lives of administrators as well as end users while enhancing security for organizations. Admins enjoy centralized user and rights management, as well as centralized control over computer and user configurations through the AD Group Policy feature. Users can authenticate once and then seamlessly access any resources in the domain for which they're authorized. Plus, files are stored in a central repository where they can be shared with other users to ease collaboration.
+
+Hierarchical Structure of Active Directory Domain Services
+- AD DS organizes data in a hierarchical structure consisiting of domains, trees, and forests. Let's go into detail with each of these.
+
+Domains: 
+A domain represents a group of objects such as users, groups and devices, which share the same AD database. You can think of a domain as a branch in a tree. A domain has the same structure as standard domains and sub-domains, e.g. yourdomain.com and sales.yourdomain.com
+
+Trees: 
+A tree is one or more domains grouped together in a logical hierarchy. Since domains in a tree in a tree are related, they are said to "trust" each other.
+
+Forest: 
+A forest is the highest level of organization within AD and contains a group of trees. The trees in a forest can also trust each other, and will also share directory schemas, catalogs, application information and domain configurations.
+
+Organizational Units: 
+An OU is used to organize users, groups, computers and other organizational units.
+
+Containers: 
+A container is similar to an OU, however, unlike an OU, it is not possible to link a Group Policy Object (GPO) to a generic Active Directory container.
+
+Other AD Services
+Besides Active Directory Domain Services, there are a handful of other critical services that AD provides. More detail below:
+
+Lightweight Directory Services: 
+AD LDS is a Lightweight Directory Access Protocol (LDAP) directory service. It provides only a subset of the AD DS features, which makes it more versatile in terms of where it can be run. For example, it can be run as a stand-alone directory service without needing to be integrated with a full implementation of Active Directory.
+
+Certificate Services: 
+You can create, manage and share encryption certificates, which allow users to exchange information securely over the internet.
+
+Active Directory Federation Services: 
+ADFS is a Single Sign-On (SSO) solution for AD which allows employees to access multiple applications with a single set of credentials, thus simplifying the user experience.
+
+Rights Management Services: 
+AD RMS is a set of tools that assists with the management of security technologies that will help organizations keep their data secure. Such technologies include encryption, certificates, and authentication, and cover a range of applications and content types, such as emails and Word documents.
+
+The server that hosts AD DS is called a domain controller (DC). A domain controller can also be used to authenticate with other MS products, such as Exchange Server, SharePoint Server, SQL Server, File Server, and more.
+
+Getting started with Windows Active Directory
+A comprehensive step-by-step guide to setting up Active Directory on Windows Server is beyond the scope of this article. Instead, I will provide a basic summary of the steps required to install AD, which should at least point you in the right direction. Assuming you already have Windows Server (2016) installed, you will need to…
+
+Change your DNS settings so that your server IP address is the primary DNS server.
+Open the Server Manager, which you can access via PowerShell by logging in as an administrator and typing ServerManager.exe
+On the Server Manager window, clock on the Add roles and features, and click the Next button to start the setup process.
+On the window that says Select Server Roles, check the box that says Active Directory Domain Services. A pop-up box will appear. Click on Add Features, and then click Next to continue.
+Keep clocking next until you get to the final screen. Unless you know what you are doing, you are better off leaving the default settings as they are.
+Once you have got to the end of the wizard, click Install, and wait for the installation process to complete.
+Once you have Active DIrectory Domain Services installed, you will then need to configure you installation, which includes changing the default passwords (always change defaut passwords when setting up any system) setting up OU's, domains, trees and forests. As mentioned, a detailed explanation of setting up and configuring Active Directory is beyond the scope of this article. For a detailed up-to-date explanation, you will need to consult the official documentation.
+
+https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/active-directory-domain-services
