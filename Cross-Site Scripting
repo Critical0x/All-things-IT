@@ -1,0 +1,23 @@
+XSS: An injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.
+
+What is a payload?
+The JavaScript code that is executed on the targets computer. There are two parts to the payload: the injection (what you wish the script to actually do) & the modification (the changes to the code we need to make it execute as every scenario is different)
+
+Examples:
+Proof of Concept: This is the simplest of payloads where all you want to do is demonstrate that you can achieve XSS on a website. This is often done by causing an alert box pop up on the page with a string of text, for example: alert('XSS');
+
+Session Stealing: Details of a users session, such as login tokens, are often kept in cookies on the targets machine. The below JavaScript takes the targets cookie, base64 encodes the cookie to ensure successful transmission and then posts it to a website under the hackers control to be logged. Once the cookies are aquired, they can take over the users session and be logged as that user.
+
+Key Logger: The below code acts as a key logger. This means anything the target types on the webpage will be forwarded to a website under the hackers control.
+
+Reflected XSS: Happens when user-supplied data in an HTTP request is included in the webpage source without any validation
+
+Stored XSS: Stored on the web application (in a datebase for example) and then gets run when other users visit the site or web page.
+
+DOM Based XSS: DOM = Document Object Model
+It is a programming interface for HTML and XML docs. It represents the page so that programs can change the document structure, style and content. A web page is a document, and this document can be either displayed in the browser window or as the HTML source.
+
+Blind XSS: Similar to Stored XSS - Your payload gets stored on the website for another user to view but you can't see the payload or test it against yourself first.
+Ex. Scenario: Sending malicious code through a contact form on a website. You can't see that message but the employee of that website/business can and will open it.
+How to Test: you need to ensure your payload has a call back (HTTP Request). This way you know if and when your code is being executed.
+Popular Tool: xsshunter (but you can make your own tool)
